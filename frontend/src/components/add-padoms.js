@@ -67,7 +67,7 @@ const AddPadoms = props => {
       {submitted ? (
         <div>
           <h4>Padoms submitted successfully</h4>
-          <Link to={"/todos/"}>
+          <Link to={"/suggest/"}>
             Back to Padoms
           </Link>
         </div>

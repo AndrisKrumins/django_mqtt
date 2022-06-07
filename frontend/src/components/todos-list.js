@@ -56,7 +56,7 @@ const TodosList = props => {
         </Alert>
       ) : (
         <div>
-          <Link to={"/todos/create"}>
+          <Link to={"/todo/create"}>
             <Button variant="outline-info" className="mb-3">
               Add To-do
             </Button>
