@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
-import TodoDataService from '../services/todos';
+import PadomsDataService from '../services/padoms';
 import { Link } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 
-const AddTodo = props => {
+const AddPadoms = props => {
 
   let editing = false;
   let initialTodoTitle = "";
   let initialTodoMemo = "";
 
-  if (props.location.state && props.location.state.currentTodo) {
+  if (props.location.state && props.location.state.currentPadoms) {
     editing = true;
-    initialTodoTitle = props.location.state.currentTodo.title;
-    initialTodoMemo = props.location.state.currentTodo.memo;
+    initialTodoTitle = props.location.state.currentPadoms.title;
+    initialTodoMemo = props.location.state.currentPadoms.memo;
   }
 
   const [title, setTitle] = useState(initialTodoTitle);
@@ -32,7 +32,7 @@ const AddTodo = props => {
     setMemo(memo);
   }
 
-  const saveTodo = () => {
+  const savePadoms = () => {
     var data = {
       title: title,
       memo: memo,
@@ -40,8 +40,8 @@ const AddTodo = props => {
     }
 
     if (editing) {
-      TodoDataService.updateTodo(
-        props.location.state.currentTodo.id,
+      PadomsDataService.updateTodo(
+        props.location.state.currentPadoms.id,
         data, props.token)
         .then(response => {
           setSubmitted(true);
@@ -52,7 +52,7 @@ const AddTodo = props => {
         })
     }
     else {
-      TodoDataService.createTodo(data, props.token)
+      PadomsDataService.createPadoms(data, props.token)
         .then(response => {
           setSubmitted(true);
         })
@@ -66,23 +66,19 @@ const AddTodo = props => {
     <Container>
       {submitted ? (
         <div>
-          <h4>Todo submitted successfully</h4>
-<<<<<<< HEAD
-          <Link to={"/todos/"}>
-=======
-          <Link to={"//"}>
->>>>>>> c57fd9b56892cfba9b56b1d0e4cc11b4a123e090
-            Back to Todos
+          <h4>Padoms submitted successfully</h4>
+          <Link to={"/suggest/"}>
+            Back to Padoms
           </Link>
         </div>
       ) : (
         <Form>
           <Form.Group className="mb-3">
-            <Form.Label>{editing ? "Edit" : "Create"} Todo</Form.Label>
+            <Form.Label>{editing ? "Edit" : "Create"} Padoms</Form.Label>
             <Form.Control
               type="text"
               required
-              placeholder="e.g. buy gift tomorrow"
+              placeholder="Title"
               value={title}
               onChange={onChangeTitle}
             />
@@ -92,12 +88,13 @@ const AddTodo = props => {
             <Form.Control
               as="textarea"
               rows={3}
+              placeholder="Pārbaudiet siltuma avotu iestatījumus"
               value={memo}
               onChange={onChangeMemo}
             />
           </Form.Group>
-          <Button variant="info" onClick={saveTodo}>
-            {editing ? "Edit" : "Add"} To-do
+          <Button variant="info" onClick={savePadoms}>
+            {editing ? "Edit" : "Add"} Padoms
           </Button>
         </Form>
       )}
@@ -105,4 +102,4 @@ const AddTodo = props => {
   )
 }
 
-export default AddTodo;
+export default AddPadoms;

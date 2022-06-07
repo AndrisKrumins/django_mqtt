@@ -30,6 +30,7 @@ class Subscribe:
         self.port = port
         self.conf_json = {
             "Idnr":1,
+<<<<<<< HEAD
             "Fabnr":1,
             "Volume": "1",
             "Vert1": "1",
@@ -38,6 +39,18 @@ class Subscribe:
             "Vert4": "1",
             "Vert5": "1",
             "Vert6": "1",
+=======
+            "Fabnr":2,
+            "Volume": "3",
+            "Vert1": "4",
+            "Vert2": "5",
+            "Vert3": "6",
+            "Vert4": "7",
+            "Vert5": "8",
+            "Vert6": "9",
+            "Vert7": "10",
+            "Vert8": "11",
+>>>>>>> c57fd9b56892cfba9b56b1d0e4cc11b4a123e090
         }
         self.parsing = Parse()
 
@@ -71,7 +84,15 @@ class Subscribe:
        
         print(merged_data)
         for key, val in merged_data.items():
+<<<<<<< HEAD
             if self.conf_json.get(val.get("name")):
+=======
+            
+            if self.conf_json.get(val.get("name")):
+
+                print(val.get("v"), ts, self.conf_json.get(val.get("name")))
+
+>>>>>>> c57fd9b56892cfba9b56b1d0e4cc11b4a123e090
                 self.sql.insert_to_telemdata(val.get("v"), ts, self.conf_json.get(val.get("name")))
 
     def on_connect(self, client, userdata, flags, rc):

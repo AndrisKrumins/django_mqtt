@@ -1,6 +1,12 @@
 from rest_framework import generics,permissions
+<<<<<<< HEAD
 from.serializers import TodoSerializer, TodoToggleCompleteSerializer
 from todo.models import Todo
+=======
+from.serializers import TodoSerializer, TodoToggleCompleteSerializer, PadomsSerializer, PadomsToggleCompleteSerializer
+from todo.models import Todo
+from padoms.models import Padoms
+>>>>>>> c57fd9b56892cfba9b56b1d0e4cc11b4a123e090
 from django.db import IntegrityError
 from django.contrib.auth.models import User
 from rest_framework.parsers import JSONParser
@@ -16,7 +22,11 @@ class TodoListCreate(generics.ListCreateAPIView):
     # queryset.
 # We specify TodoSerializer which we have earlier implemented
     serializer_class = TodoSerializer
+<<<<<<< HEAD
     permission_classes=[permissions.IsAuthenticated]
+=======
+    # permission_classes=[permissions.IsAuthenticated]
+>>>>>>> c57fd9b56892cfba9b56b1d0e4cc11b4a123e090
     def get_queryset(self):
         user = self.request.user
         return Todo.objects.filter(user=user).order_by('-created')
@@ -42,6 +52,41 @@ class TodoToggleComplete(generics.UpdateAPIView):
         serializer.instance.completed=not(serializer.instance.completed)
         serializer.save()
 
+<<<<<<< HEAD
+=======
+class PadomsListCreate(generics.ListCreateAPIView):
+    # ListAPIView requires two mandatory attributes, serializer_class and
+    # queryset.
+# We specify PadomsSerializer which we have earlier implemented
+    serializer_class = PadomsSerializer
+    permission_classes=[permissions.IsAuthenticated]
+    def get_queryset(self):
+        user = self.request.user
+        return Padoms.objects.filter(user=user).order_by('-created')
+
+    def perform_create(self, serializer):
+        #serializer holds a django model
+        serializer.save(user=self.request.user)
+
+class PadomsRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = PadomsSerializer
+    permission_classes = [permissions.IsAuthenticated]
+    def get_queryset(self):
+        user = self.request.user
+        # user can only update, delete own posts
+        return Padoms.objects.filter(user=user)
+class PadomsToggleComplete(generics.UpdateAPIView):
+    serializer_class = PadomsToggleCompleteSerializer
+    permission_classes = [permissions.IsAuthenticated]
+    def get_queryset(self):
+        user = self.request.user
+        return Padoms.objects.filter(user=user)
+    def perform_update(self,serializer):
+        serializer.instance.completed=not(serializer.instance.completed)
+        serializer.save()
+
+
+>>>>>>> c57fd9b56892cfba9b56b1d0e4cc11b4a123e090
 @csrf_exempt
 def signup(request):
     if request.method == 'POST':
