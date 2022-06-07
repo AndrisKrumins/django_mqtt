@@ -55,9 +55,8 @@ const PadomsList = props => {
         <div>
           <Link to={"/suggest/create"}>
             <Button variant="outline-info" className="mb-3">
-              Es sodien juku prata
+              Es sodien juku prata aaaaaaa
             </Button>
-            
           </Link>
           {padoms.map((padoms) => {
             return (
