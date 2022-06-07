@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'corsheaders',
     'zinas',
+    'padoms',
 
 ]
 
@@ -125,7 +126,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Riga'
 
 USE_I18N = True
 
@@ -150,9 +151,12 @@ REST_FRAMEWORK = {
 
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
+         'http://192.168.88.240:3000',
+
 ]
 
 CORS_ALLOWED_ORIGINS = [
     'http://127.0.0.1:3000',
     'http://localhost:3000',
+     'http://192.168.88.240:3000',
 ]
