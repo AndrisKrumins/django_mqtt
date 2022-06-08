@@ -5,35 +5,35 @@ class TodoDataService{
 
   getAll(token){      
     axios.defaults.headers.common["Authorization"] = "Token " + token;      
-    return axios.get(server_add, '/api/todos/');
+    return axios.get(server_add +  '/api/todos/');
   }   
 
   createTodo(data, token){
     axios.defaults.headers.common["Authorization"] = "Token " + token;
-    return axios.post(server_add, "/api/todos/", data);
+    return axios.post(server_add +  "/api/todos/", data);
   }
    
   updateTodo(id, data, token){
     axios.defaults.headers.common["Authorization"] = "Token " + token;
-    return axios.put(server_add, `/api/todos/${id}`, data);
+    return axios.put(server_add +  `/api/todos/${id}`, data);
   }
 
   deleteTodo(id, token){
     axios.defaults.headers.common["Authorization"] = "Token " + token;
-    return axios.delete(server_add, `/api/todos/${id}`);
+    return axios.delete(server_add +  `/api/todos/${id}`);
   }   
 
   completeTodo(id, token){
     axios.defaults.headers.common["Authorization"] = "Token " + token;
-    return axios.put(server_add, `/api/todos/${id}/complete`);    
+    return axios.put(server_add +  `/api/todos/${id}/complete`);    
   }   
 
   login(data){
-    return axios.post(server_add, "/api/login/", data);
+    return axios.post(server_add + "/api/login/", data);
   }   
 
   signup(data){
-    return axios.post(server_add, "/api/signup/", data);
+    return axios.post(server_add + "/api/signup/", data);
   }      
 }
 
