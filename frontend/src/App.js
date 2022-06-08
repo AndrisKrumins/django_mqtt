@@ -128,7 +128,7 @@ function App() {
             className="text-reset fw-bold text-decoration-none" 
             href="https://intellify.lv"
           >
-            Andris Krūmiņš
+            Andris Krūmiņš un vel
           </a> - <a 
             target="_blank" 
             className="text-reset fw-bold text-decoration-none" 
