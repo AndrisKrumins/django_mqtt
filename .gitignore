@@ -1,7 +1,7 @@
 node_modules
 _pycache_
 todobackend/api/__pycache__/
-
+padoms.js
 todobackend/api/__pycache__/urls.cpython-310.pyc
 todobackend/api/__pycache__/urls.cpython-310.pyc
 .installed.cfg
