@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> 9ab0e1d79e63088a210cb150451600f281a678a5
 import psycopg2
 from sqlalchemy import create_engine
 from sqlalchemy import inspect
