@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'zinas',
     'padoms',
+    'django_crontab',
 ]
 
 MIDDLEWARE = [
