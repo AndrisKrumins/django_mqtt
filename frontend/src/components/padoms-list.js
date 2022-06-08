@@ -53,11 +53,11 @@ const PadomsList = props => {
         </Alert>
       ) : (
         <div>
-          <Link to={"/suggest/create"}>
+          {/* <Link to={"/suggest/create"}>
             <Button variant="outline-info" className="mb-3">
               Es sodien juku prata aaaaaaa
             </Button>
-          </Link>
+          </Link> */}
           {padoms.map((padoms) => {
             return (
               <Card key={padoms.id} className="mb-3">
