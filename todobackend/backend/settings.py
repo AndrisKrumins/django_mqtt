@@ -162,5 +162,5 @@ CORS_ALLOWED_ORIGINS = [
 
 CRONJOBS = [
     ('*/2 * * * *', 'todobackend.cron.my_cron_job'),
-    ('*/2 * * * *', 'todobackend.smartSmart')
+    ('*/2 * * * *', 'todobackend.smartSmart.main')
 ]
