@@ -4,27 +4,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import AddTodo from './components/add-todo';
 import TodosList from './components/todos-list';
-<<<<<<< HEAD
-=======
 import AddPadoms from './components/add-padoms';
 import PadomsList from './components/padoms-list';
 
->>>>>>> c57fd9b56892cfba9b56b1d0e4cc11b4a123e090
 import Login from './components/login';
 import Signup from './components/signup';
 import Data from './components/data';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Navbar';
-<<<<<<< HEAD
-
-import TodoDataService from './services/todos';
-
-=======
 import TodoDataService from './services/todos';
 
 
->>>>>>> c57fd9b56892cfba9b56b1d0e4cc11b4a123e090
 function App() {
   const [user, setUser] = React.useState(null);
   const [token, setToken] = React.useState(null);
@@ -65,24 +56,11 @@ function App() {
         setError(e.toString());
       })
   }
-<<<<<<< HEAD
-  
-=======
 
->>>>>>> c57fd9b56892cfba9b56b1d0e4cc11b4a123e090
   return (
     <div className="App">
       <Navbar bg="primary" variant="dark">
         <div className="container-fluid">
-<<<<<<< HEAD
-          <Navbar.Brand>TodosApp</Navbar.Brand>
-          <Nav className="me-auto">
-            <Container>
-              <Link className="nav-link" to={"/todos"}>Todos</Link>
-              { user ? (
-                <Link className="nav-link" onClick={logout}>Logout ({user})</Link>
-              ) : (
-=======
           <Navbar.Brand>TodosAndris</Navbar.Brand>
           <Nav className="me-auto">
             <Container>
@@ -95,16 +73,11 @@ function App() {
               <Link className="nav-link" to={"/todo"}>Todo</Link>
                 </> 
               ):(
->>>>>>> c57fd9b56892cfba9b56b1d0e4cc11b4a123e090
                 <>
                   <Link className="nav-link" to={"/login"}>Login</Link>
                   <Link className="nav-link" to={"/signup"}>Sign Up</Link>
                   <Link className="nav-link" to={"/data"}>Data</Link>
-<<<<<<< HEAD
-
-=======
                   <Link className="nav-link" to={"/suggest"}>Suggestions</Link>
->>>>>>> c57fd9b56892cfba9b56b1d0e4cc11b4a123e090
                 </>
               )}
             </Container>
@@ -114,20 +87,6 @@ function App() {
       
       <div className="container mt-4">
         <Switch>	
-<<<<<<< HEAD
-          <Route exact path={["/", "/todos"]} render={(props) =>
-            <TodosList {...props} token={token} />
-          }>
-          </Route>
-          <Route path="/todos/create" render={(props)=> 
-            <AddTodo {...props} token={token} />
-          }>
-          </Route>
-          <Route path="/todos/:id/" render={(props)=> 
-            <AddTodo {...props} token={token} />
-          }>
-          </Route>
-=======
           <Route exact path={["/", "/suggest"]} render={(props) =>
             <PadomsList {...props} token={token} />
           }></Route>
@@ -146,7 +105,6 @@ function App() {
           <Route exact path={["/", "/todo"]} render={(props) =>
             <TodosList {...props} token={token} />
           }></Route>
->>>>>>> c57fd9b56892cfba9b56b1d0e4cc11b4a123e090
           <Route path="/login" render={(props)=> 
             <Login {...props} login={login} />
           }>
@@ -155,18 +113,10 @@ function App() {
             <Signup {...props} signup={signup} />
           }>
           </Route>
-<<<<<<< HEAD
-
-=======
->>>>>>> c57fd9b56892cfba9b56b1d0e4cc11b4a123e090
           <Route path="/data" render={(props)=> 
             <Data {...props} token={token} />
           }>
           </Route>
-<<<<<<< HEAD
-
-=======
->>>>>>> c57fd9b56892cfba9b56b1d0e4cc11b4a123e090
         </Switch>
       </div>
       

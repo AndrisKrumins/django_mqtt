@@ -67,11 +67,7 @@ const AddTodo = props => {
       {submitted ? (
         <div>
           <h4>Todo submitted successfully</h4>
-<<<<<<< HEAD
-          <Link to={"/todos/"}>
-=======
           <Link to={"//"}>
->>>>>>> c57fd9b56892cfba9b56b1d0e4cc11b4a123e090
             Back to Todos
           </Link>
         </div>

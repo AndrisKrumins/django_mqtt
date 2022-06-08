@@ -1,5 +1,4 @@
 from django.shortcuts import render
-
 from .models import TestData
 from .serializers import TestDataSerializer
 from django.http import Http404

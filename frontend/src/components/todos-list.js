@@ -45,27 +45,18 @@ const TodosList = props => {
       })
   }
 
-<<<<<<< HEAD
-  return (
-    <Container>
-=======
   
 
   return (
     <Container>
       
->>>>>>> c57fd9b56892cfba9b56b1d0e4cc11b4a123e090
       {props.token == null || props.token === "" ? (
         <Alert variant='warning'>
           You are not logged in. Please <Link to={"/login"}>login</Link> to see your todos.
         </Alert>
       ) : (
         <div>
-<<<<<<< HEAD
-          <Link to={"/todos/create"}>
-=======
           <Link to={"/todo/create"}>
->>>>>>> c57fd9b56892cfba9b56b1d0e4cc11b4a123e090
             <Button variant="outline-info" className="mb-3">
               Add To-do
             </Button>

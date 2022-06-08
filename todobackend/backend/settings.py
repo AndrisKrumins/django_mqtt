@@ -25,12 +25,7 @@ SECRET_KEY = 'django-insecure-4&lcvph@em2sq*!np$-xrk4y8+v-#q)lws7e6mqf)dfnh5j4p%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-<<<<<<< HEAD
 ALLOWED_HOSTS = ['192.168.88.240']
-=======
-ALLOWED_HOSTS = []
->>>>>>> c57fd9b56892cfba9b56b1d0e4cc11b4a123e090
-
 
 # Application definition
 
@@ -47,11 +42,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'corsheaders',
     'zinas',
-<<<<<<< HEAD
-=======
     'padoms',
->>>>>>> c57fd9b56892cfba9b56b1d0e4cc11b4a123e090
-
 ]
 
 MIDDLEWARE = [
@@ -133,12 +124,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-<<<<<<< HEAD
 TIME_ZONE = 'UTC'
-=======
-TIME_ZONE = 'Europe/Riga'
->>>>>>> c57fd9b56892cfba9b56b1d0e4cc11b4a123e090
-
 USE_I18N = True
 
 USE_TZ = True
@@ -162,19 +148,12 @@ REST_FRAMEWORK = {
 
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
-<<<<<<< HEAD
-=======
          'http://192.168.88.240:3000',
 
->>>>>>> c57fd9b56892cfba9b56b1d0e4cc11b4a123e090
 ]
 
 CORS_ALLOWED_ORIGINS = [
     'http://127.0.0.1:3000',
     'http://localhost:3000',
-<<<<<<< HEAD
     'http://192.168.88.240:3000'
-=======
-     'http://192.168.88.240:3000',
->>>>>>> c57fd9b56892cfba9b56b1d0e4cc11b4a123e090
 ]
