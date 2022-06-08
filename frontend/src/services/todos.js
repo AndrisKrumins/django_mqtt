@@ -1,5 +1,5 @@
 import axios from 'axios';
-const local_add = 'http://localhost:8000';      // addrese lokalai versijai
+//const server_add = 'http://localhost:8000';      // addrese lokalai versijai
 const server_add = 'http://192.168.88.240:8000' // addrese produkcijas versijai
 class TodoDataService{
 
