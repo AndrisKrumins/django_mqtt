@@ -22,12 +22,12 @@ class PadomsDataService{
 
   deletePadoms(id, token){
     axios.defaults.headers.common["Authorization"] = "Token " + token;
-    return axios.delete(server_add + `/api/padoms/,${id}`);
+    return axios.delete(server_add + `/api/padoms/${id}`);
   }   
 
   completePadoms(id, token){
     axios.defaults.headers.common["Authorization"] = "Token " + token;
-    return axios.put(server_add + `/api/padoms/,${id}/complete`);    
+    return axios.put(server_add + `/api/padoms/${id}/complete`);    
   }   
 
 }

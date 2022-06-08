@@ -31,11 +31,13 @@ dff['Datetime'] = pd.to_datetime(dff['ts'])
 dff['Datetime']=dff['Datetime']+pd.DateOffset(hours=3)
 Pat=pd.DataFrame()
 
-Pat = dff.loc[(dff['dp'] == 11), ['id', 'val', 'ts', 'dp','Datetime']] # piesaista Pateriņa db pie jauna dataframe 
+Pat = dff.loc[(dff['dp'] == 11), ['id', 'val', 'ts', 'dp','Datetime']] # piesaista Pateriņa db pie jauna dataframe
+
 PatDiena=Pat.resample('24H', on='Datetime').max() #iegūst katras dienas max paterinu
 PatDiena['El paterins']=PatDiena['val'].diff()    #iegust katras dienas veikto paterinu
-print(PatDiena['El paterins'])
-NedelasVidejais = (PatDiena['El paterins'].sum()/len(PatDiena.index)) # aprēķīna dienas vidējo patēriņu.
+
+NedelasVidejais = (PatDiena['El paterins'].mean())
+
 Atskaite1=Pat.resample('1H', on='Datetime').max() #iegūst katras h max paterinu
 Atskaite1['El paterins']=Atskaite1['val'].diff()  #iegust katras h veikto paterinu
 
@@ -54,13 +56,10 @@ elif(last_value>=0.18):
     dati_apr='Pēdējās h elektrības pateriņš ir zems ( '+ str(last_value) + ' kWh).'
 else:dati_apr='Pēdējās h elektrības pateriņš ir ļoti zems ( '+ str(last_value) + ' kWh).'
 # ---------------------------------------
-
-
 NedDif=(PatDiena['El paterins'].iat[-2]/NedelasVidejais)*100-100 # % atsķirība starp iepriekšējās dienas patēriņu, un vidējo patēriņu.
-
 # ---       --    Teksta izveide         -- --- aljo
 dati_apr = dati_apr + " Pēdējās dienas patēriņš ir " + str(round(PatDiena['El paterins'].iat[-2],2))+ " kWh, " 
-if NedelasVidejais > 0:
+if NedDif > 1:
     dati_apr = dati_apr + "tas ir par "+str(round(NedDif,2))+"% vairāk par vidējo patēriņu ( "
 else:
     dati_apr = dati_apr + "tas ir par "+str(round(NedDif,2))+"% mazāk par vidējo patēriņu ( "
