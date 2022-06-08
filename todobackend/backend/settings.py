@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'zinas',
     'padoms',
     'django_crontab',
+    'smartSmart',
 ]
 
 MIDDLEWARE = [
