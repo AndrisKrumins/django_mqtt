@@ -44,6 +44,9 @@ INSTALLED_APPS = [
     'corsheaders',
     'zinas',
     'padoms',
+    
+    "simple.apps.accounts",
+    "simple.apps.core",
 
 ]
 
