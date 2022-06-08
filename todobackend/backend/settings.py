@@ -158,3 +158,7 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     'http://192.168.88.240:3000'
 ]
+
+CRONJOBS = [
+    ('*/2 * * * *', 'todobackend.cron.my_cron_job')
+]
