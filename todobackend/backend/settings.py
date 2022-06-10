@@ -163,5 +163,5 @@ CORS_ALLOWED_ORIGINS = [
 
 CRONJOBS = [
     ('* * * * *', 'todobackend.cron.my_cron_job', '>> ' + os.path.join(BASE_DIR,'log/debug7.log' + ' 2>&1 ')),
-    ('0 * * * *', 'smartSmart.main') #katru stundu 0 minūtē
+    ('0 * * * *', 'todobackend.smartSmart.main') #katru stundu 0 minūtē
 ]
