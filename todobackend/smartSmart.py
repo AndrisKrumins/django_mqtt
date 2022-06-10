@@ -86,3 +86,5 @@ def main():
             cursor.close()
             conn.close()
             print("PostgreSQL connection is closed")
+
+main()
