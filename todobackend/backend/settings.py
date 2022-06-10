@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -161,6 +162,6 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 CRONJOBS = [
-    ('*/2 * * * *', 'todobackend.cron.my_cron_job'),
-    ('*/2 * * * *', 'todobackend.smartSmart.main')
+    ('* * * * *', 'todobackend.cron.my_cron_job', '>> ' + os.path.join(BASE_DIR,'log/debug7.log' + ' 2>&1 ')),
+    ('0 9 * * *', 'todobackend.smartSmart.main')
 ]
