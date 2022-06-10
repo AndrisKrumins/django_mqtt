@@ -6,6 +6,7 @@ import AddTodo from './components/add-todo';
 import TodosList from './components/todos-list';
 import AddPadoms from './components/add-padoms';
 import PadomsList from './components/padoms-list';
+import DataTable from './components/dataTable';
 
 import Login from './components/login';
 import Signup from './components/signup';
@@ -71,6 +72,7 @@ function App() {
               <Link className="nav-link" to={"/data"}>Data</Link>
               <Link className="nav-link" to={"/suggest"}>Suggestions</Link>
               <Link className="nav-link" to={"/todo"}>Todo</Link>
+              <Link className="nav-link" to={"/datatable"}>Data Table</Link>
                 </> 
               ):(
                 <>
@@ -105,18 +107,18 @@ function App() {
           <Route exact path={["/", "/todo"]} render={(props) =>
             <TodosList {...props} token={token} />
           }></Route>
+          <Route exact path={["/", "/datatable"]} render={(props) =>
+            <DataTable {...props} token={token} />
+          }></Route>
           <Route path="/login" render={(props)=> 
             <Login {...props} login={login} />
-          }>
-          </Route>
+          }></Route>
           <Route path="/signup" render={(props)=> 
             <Signup {...props} signup={signup} />
-          }>
-          </Route>
+          }></Route>
           <Route path="/data" render={(props)=> 
             <Data {...props} token={token} />
-          }>
-          </Route>
+          }></Route>
         </Switch>
       </div>
       
