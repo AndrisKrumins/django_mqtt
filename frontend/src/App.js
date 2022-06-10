@@ -6,6 +6,7 @@ import AddTodo from './components/add-todo';
 import TodosList from './components/todos-list';
 import AddPadoms from './components/add-padoms';
 import PadomsList from './components/padoms-list';
+import DataTable from './components/dataTable';
 
 import Login from './components/login';
 import Signup from './components/signup';
@@ -71,13 +72,14 @@ function App() {
               <Link className="nav-link" to={"/data"}>Data</Link>
               <Link className="nav-link" to={"/suggest"}>Suggestions</Link>
               <Link className="nav-link" to={"/todo"}>Todo</Link>
+              <Link className="nav-link" to={"/datatable"}>Data Table</Link>
                 </> 
               ):(
                 <>
                   <Link className="nav-link" to={"/login"}>Login</Link>
                   <Link className="nav-link" to={"/signup"}>Sign Up</Link>
-                  <Link className="nav-link" to={"/data"}>Data</Link>
-                  <Link className="nav-link" to={"/suggest"}>Suggestions</Link>
+                  {/* <Link className="nav-link" to={"/data"}>Data</Link>
+                  <Link className="nav-link" to={"/suggest"}>Suggestions</Link> */}
                 </>
               )}
             </Container>
@@ -104,6 +106,9 @@ function App() {
           }></Route>
           <Route exact path={["/", "/todo"]} render={(props) =>
             <TodosList {...props} token={token} />
+          }></Route>
+          <Route exact path={["/", "/datatable"]} render={(props) =>
+            <DataTable {...props} token={token} />
           }></Route>
           <Route path="/login" render={(props)=> 
             <Login {...props} login={login} />

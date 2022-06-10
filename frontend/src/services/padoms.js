@@ -1,6 +1,6 @@
 import axios from 'axios';
-//const server_add = 'http://localhost:8000';      // addrese lokalai versijai
-const server_add = 'http://192.168.88.240:8000' // addrese produkcijas versijai
+const server_add = 'http://localhost:8000';      // addrese lokalai versijai
+//const server_add = 'http://192.168.88.240:8000' // addrese produkcijas versijai
 class PadomsDataService{
   
 

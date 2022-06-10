@@ -13,7 +13,7 @@ class TestDataList(APIView):
     List all snippets, or create a new snippet.
     """
     def get(self, request, format=None):
-        snippets = TestData.objects.all()
+        snippets = TestData.objects.all().order_by("-ts")
         serializer = TestDataSerializer(snippets, many=True)
         return Response(serializer.data)
 

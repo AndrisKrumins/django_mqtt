@@ -63,7 +63,7 @@ const PadomsList = props => {
               <Card key={padoms.id} className="mb-3">
                 <Card.Body>
                   <div className={`${padoms.completed ? "text-decoration-line-through" : ""}`}>
-                    <Card.Title style={{fontSize: 25, textAlign: "center"}}><b>{padoms.title}</b></Card.Title>
+                    <Card.Title style={{fontSize: 20, textAlign: "center"}}><b>{padoms.title}</b></Card.Title>
                     <Card.Text style={{fontSize: 20, textAlign: "center"}}> {padoms.memo}</Card.Text>
                     <Card.Text style={{fontSize: 15, textAlign: "right"}}>
                       {moment(padoms.created).format('lll')}

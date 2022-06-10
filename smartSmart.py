@@ -36,25 +36,27 @@ Pat = dff.loc[(dff['dp'] == 11), ['id', 'val', 'ts', 'dp','Datetime']] # piesais
 PatDiena=Pat.resample('24H', on='Datetime').max() #iegūst katras dienas max paterinu
 PatDiena['El paterins']=PatDiena['val'].diff()    #iegust katras dienas veikto paterinu
 
-NedelasVidejais = (PatDiena['El paterins'].mean())
+NedelasVidejais = (PatDiena['El paterins'].mean()) #videjais paterins
 
-Atskaite1=Pat.resample('1H', on='Datetime').max() #iegūst katras h max paterinu
-Atskaite1['El paterins']=Atskaite1['val'].diff()  #iegust katras h veikto paterinu
+PatHour=Pat.resample('1H', on='Datetime').max() #iegūst katras h max paterinu - kWh
+PatHour['El paterins']=PatHour['val'].diff()  #iegust katras h veikto paterinu - kW
 
 # --- pedējās stundas patēriņš + teksts ---
-last_value = Atskaite1['El paterins'].iat[-1]
-last_value=round(last_value,2) 
-if(last_value>=0.9):
-    dati_apr='Pēdējās h elektrības pateriņš ir ļoti augsts ( '+ str(last_value) + ' kWh).'
-elif(last_value>=0.72):
-    dati_apr='Pēdējās h elektrības pateriņš ir augsts ( '+ str(last_value) + ' kWh).'
-elif(last_value>=0.54):
-    dati_apr='Pēdējās h elektrības pateriņš ir normas robežās ( '+ str(last_value) + ' kWh).'
-elif(last_value>=0.36):
-    dati_apr='Pēdējās h elektrības pateriņš ir zem normas ( '+ str(last_value) + ' kWh).'
-elif(last_value>=0.18):
-    dati_apr='Pēdējās h elektrības pateriņš ir zems ( '+ str(last_value) + ' kWh).'
-else:dati_apr='Pēdējās h elektrības pateriņš ir ļoti zems ( '+ str(last_value) + ' kWh).'
+PatLastHour = PatHour['El paterins'].iat[-1]
+PatAvgHour=(PatHour['El paterins'].mean())
+print(PatAvgHour)
+PatLastHour=round(PatLastHour,2) 
+if(PatLastHour>=PatAvgHour*1.5):
+    dati_apr='Pēdējās h elektrības pateriņš ir ļoti augsts ( '+ str(PatLastHour) + ' kWh).'
+elif(PatLastHour>=PatAvgHour*1.25):
+    dati_apr='Pēdējās h elektrības pateriņš ir augsts ( '+ str(PatLastHour) + ' kWh).'
+elif(PatLastHour>=PatAvgHour):
+    dati_apr='Pēdējās h elektrības pateriņš ir normas robežās ( '+ str(PatLastHour) + ' kWh).'
+elif(PatLastHour>=PatAvgHour*0.75):
+    dati_apr='Pēdējās h elektrības pateriņš ir zem normas ( '+ str(PatLastHour) + ' kWh).'
+elif(PatLastHour>=PatAvgHour*0.5):
+    dati_apr='Pēdējās h elektrības pateriņš ir zems ( '+ str(PatLastHour) + ' kWh).'
+else:dati_apr='Pēdējās h elektrības pateriņš ir ļoti zems ( '+ str(PatLastHour) + ' kWh).'
 # ---------------------------------------
 NedDif=(PatDiena['El paterins'].iat[-2]/NedelasVidejais)*100-100 # % atsķirība starp iepriekšējās dienas patēriņu, un vidējo patēriņu.
 # ---       --    Teksta izveide         -- --- aljo
